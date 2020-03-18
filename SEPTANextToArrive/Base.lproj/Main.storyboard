@@ -15,47 +15,63 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SEPTA Next to Arrive!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rqU-mb-3Zv">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="SEPTA Next to Arrive!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rqU-mb-3Zv">
                                 <rect key="frame" x="112" y="44" width="191" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="x8h-oz-SGm"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Starting Station" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6wg-W1-9bR">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Starting Station" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6wg-W1-9bR">
                                 <rect key="frame" x="20" y="119" width="134" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CjX-zz-eK1">
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CjX-zz-eK1">
                                 <rect key="frame" x="0.0" y="437" width="414" height="216"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             </pickerView>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jbR-ae-8Go">
-                                <rect key="frame" x="0.0" y="148" width="414" height="216"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            </pickerView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ending Station" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rf9-Go-tiB">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ending Station" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rf9-Go-tiB">
                                 <rect key="frame" x="20" y="378" width="111" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Pick a Station" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WvR-af-aYo">
+                                <rect key="frame" x="149" y="148" width="116" height="34"/>
+                                <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="6wg-W1-9bR" firstAttribute="leading" secondItem="Rf9-Go-tiB" secondAttribute="leading" id="B5y-Or-Q1N"/>
+                            <constraint firstItem="rqU-mb-3Zv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="112" id="Kie-j9-IjE"/>
+                            <constraint firstItem="rqU-mb-3Zv" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="QJq-X9-TZM"/>
+                            <constraint firstItem="CjX-zz-eK1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="VQg-tX-nj5"/>
+                            <constraint firstItem="WvR-af-aYo" firstAttribute="top" secondItem="6wg-W1-9bR" secondAttribute="bottom" constant="8" id="VnO-7H-ApX"/>
+                            <constraint firstItem="WvR-af-aYo" firstAttribute="centerX" secondItem="CjX-zz-eK1" secondAttribute="centerX" id="XG6-nt-kQA"/>
+                            <constraint firstItem="6wg-W1-9bR" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="eP6-Hi-7bb"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6wg-W1-9bR" secondAttribute="trailing" constant="260" id="gfR-3h-KBX"/>
+                            <constraint firstItem="CjX-zz-eK1" firstAttribute="top" secondItem="Rf9-Go-tiB" secondAttribute="bottom" constant="38" id="hA5-J5-GNm"/>
+                            <constraint firstItem="6wg-W1-9bR" firstAttribute="top" secondItem="rqU-mb-3Zv" secondAttribute="bottom" constant="15" id="i6h-J7-Vjs"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="CjX-zz-eK1" secondAttribute="bottom" constant="209" id="jJ8-cD-Q0P"/>
+                            <constraint firstItem="rqU-mb-3Zv" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="oca-LO-bCd"/>
+                            <constraint firstItem="rqU-mb-3Zv" firstAttribute="centerX" secondItem="WvR-af-aYo" secondAttribute="centerX" id="zmi-fL-fbl"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="endingStationPicker" destination="CjX-zz-eK1" id="oG9-wV-FCi"/>
-                        <outlet property="startingStationPicker" destination="jbR-ae-8Go" id="bWw-Dx-X2h"/>
+                        <outlet property="startingStaion" destination="WvR-af-aYo" id="Ocd-rG-1Iy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="132" y="138"/>
+            <point key="canvasLocation" x="131.8840579710145" y="137.94642857142856"/>
         </scene>
     </scenes>
 </document>
