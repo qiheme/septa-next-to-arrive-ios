@@ -12,14 +12,29 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     @IBOutlet weak var startingStation: UITextField!
     @IBOutlet weak var endingStation: UITextField!
+    
+    @IBOutlet weak var trainNumberLabel: UILabel!
+    @IBOutlet weak var trainLineLabel: UILabel!
+    @IBOutlet weak var trainDepartureLabel: UILabel!
+    @IBOutlet weak var trainArrivalLabel: UILabel!
+    @IBOutlet weak var trainConnectionLabel: UILabel!
+    @IBOutlet weak var trainStatusLabel: UILabel!
+    
+    @IBOutlet weak var trainNumberPlaceholder: UILabel!
+    @IBOutlet weak var trainLinePlaceholder: UILabel!
+    @IBOutlet weak var trainDeparturePlaceholder: UILabel!
+    @IBOutlet weak var trainArrivalPlaceholder: UILabel!
+    @IBOutlet weak var trainConnectionPlaceholder: UILabel!
+    @IBOutlet weak var trainStatusPlaceholder: UILabel!
+
+    
+    
     @IBAction func findNextToArrive(_ sender: UIButton) {
         let start = startingStation.text
         let end = endingStation.text
         
         let url = SEPTAApi.septaURL(start: start, end: end)
         let request = URLRequest(url: url)
-        print(url)
-        print(request)
         let task = session.dataTask(with: request) {
             (data, response, error) in
             if let jsonData = data {
@@ -27,7 +42,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
                     print(jsonString)
                 }
             } else if let requestError = error {
-                print("Error fetching interesting photos: \(requestError)")
+                print("Error fetching next to arrive train: \(requestError)")
             } else {
                 print("Unexpected error with the request")
             }
@@ -243,7 +258,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         startingStation.inputAccessoryView = toolBar
         endingStation.inputAccessoryView = toolBar
     }
-    
+
     @objc func action() {
         view.endEditing(true)
     }
