@@ -16,7 +16,23 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         let start = startingStation.text
         let end = endingStation.text
         
-        
+        let url = SEPTAApi.septaURL(start: start, end: end)
+        let request = URLRequest(url: url)
+        print(url)
+        print(request)
+        let task = session.dataTask(with: request) {
+            (data, response, error) in
+            if let jsonData = data {
+                if let jsonString = String(data: jsonData, encoding: .utf8) {
+                    print(jsonString)
+                }
+            } else if let requestError = error {
+                print("Error fetching interesting photos: \(requestError)")
+            } else {
+                print("Unexpected error with the request")
+            }
+        }
+        task.resume()
     }
 
     var selectedStation: String?
@@ -176,6 +192,11 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
                        "Yardley"
     ]
     
+    private let session: URLSession = {
+        let config = URLSessionConfiguration.default
+        return URLSession(configuration: config)
+    }()
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -192,8 +213,6 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         // This method is triggered whenever the user makes a change to the picker selection.
         // The parameter named row and component represents what was selected.
-        print(row)
-        print(component)
         selectedStation = stationList[row] // selected item
         if pickerView.tag == 1 {
             startingStation.text = selectedStation
