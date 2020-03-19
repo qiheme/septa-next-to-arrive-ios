@@ -12,7 +12,13 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     @IBOutlet weak var startingStation: UITextField!
     @IBOutlet weak var endingStation: UITextField!
-    
+    @IBAction func findNextToArrive(_ sender: UIButton) {
+        let start = startingStation.text
+        let end = endingStation.text
+        
+        
+    }
+
     var selectedStation: String?
     var stationList = ["30th Street Station",
                        "49th Street",
