@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,6 +16,7 @@
 		0AA79F2A242257A400AF939B /* SEPTANextToArriveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA79F29242257A400AF939B /* SEPTANextToArriveTests.swift */; };
 		0AA79F35242257A400AF939B /* SEPTANextToArriveUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA79F34242257A400AF939B /* SEPTANextToArriveUITests.swift */; };
 		0AA79F432423D6BF00AF939B /* SEPTAApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA79F422423D6BF00AF939B /* SEPTAApi.swift */; };
+		0AA79F4524241F4800AF939B /* SEPTAData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA79F4424241F4800AF939B /* SEPTAData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		0AA79F34242257A400AF939B /* SEPTANextToArriveUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SEPTANextToArriveUITests.swift; sourceTree = "<group>"; };
 		0AA79F36242257A400AF939B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0AA79F422423D6BF00AF939B /* SEPTAApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SEPTAApi.swift; sourceTree = "<group>"; };
+		0AA79F4424241F4800AF939B /* SEPTAData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SEPTAData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 				0AA79F12242257A000AF939B /* AppDelegate.swift */,
 				0AA79F14242257A000AF939B /* SceneDelegate.swift */,
 				0AA79F16242257A000AF939B /* ViewController.swift */,
+				0AA79F4424241F4800AF939B /* SEPTAData.swift */,
 				0AA79F422423D6BF00AF939B /* SEPTAApi.swift */,
 				0AA79F18242257A000AF939B /* Main.storyboard */,
 				0AA79F1B242257A400AF939B /* Assets.xcassets */,
@@ -265,6 +268,7 @@
 				0AA79F432423D6BF00AF939B /* SEPTAApi.swift in Sources */,
 				0AA79F17242257A000AF939B /* ViewController.swift in Sources */,
 				0AA79F13242257A000AF939B /* AppDelegate.swift in Sources */,
+				0AA79F4524241F4800AF939B /* SEPTAData.swift in Sources */,
 				0AA79F15242257A000AF939B /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
