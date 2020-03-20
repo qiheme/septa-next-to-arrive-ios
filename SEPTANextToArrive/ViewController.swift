@@ -37,6 +37,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             case let .success(train):
                 print(train)
                 print("successfully retrieved trains")
+                self.showTrainArrivals(arrival: train)
             case let .failure(error):
                 print(error)
                 print("Failed to retrieve trains")
@@ -232,6 +233,30 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
            
            return SEPTAApi.arrivals(fromJSON: jsonData)
        }
+    
+    func showTrainArrivals(arrival: SEPTAResponse) {
+
+        trainNumberPlaceholder.text = arrival.train
+        trainLinePlaceholder.text = arrival.line
+        trainDeparturePlaceholder.text = arrival.departure
+        trainArrivalPlaceholder.text = arrival.arrival
+        trainConnectionPlaceholder.text = arrival.connection
+        trainStatusPlaceholder.text = arrival.delay
+
+        trainNumberPlaceholder.isHidden = false
+        trainLinePlaceholder.isHidden = false
+        trainDeparturePlaceholder.isHidden = false
+        trainArrivalPlaceholder.isHidden = false
+        trainConnectionPlaceholder.isHidden = false
+        trainStatusPlaceholder.isHidden = false
+        
+        trainNumberLabel.isHidden = false
+        trainLineLabel.isHidden = false
+        trainDepartureLabel.isHidden = false
+        trainArrivalLabel.isHidden = false
+        trainConnectionLabel.isHidden = false
+        trainStatusLabel.isHidden = false
+    }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1

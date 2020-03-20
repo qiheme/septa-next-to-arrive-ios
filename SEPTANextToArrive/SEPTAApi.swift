@@ -23,7 +23,6 @@ struct SEPTAApi {
             let septaResponse = try decoder.decode(Array<SEPTAResponse>.self, from: data)
             print(septaResponse)
 //            let responseData = septaResponse.first
-            
             return .success(septaResponse.first!)
         } catch {
             return .failure(error)
