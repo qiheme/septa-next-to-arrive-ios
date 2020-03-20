@@ -26,30 +26,25 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     @IBOutlet weak var trainArrivalPlaceholder: UILabel!
     @IBOutlet weak var trainConnectionPlaceholder: UILabel!
     @IBOutlet weak var trainStatusPlaceholder: UILabel!
-
     
+    var store = SEPTAStore()
     
     @IBAction func findNextToArrive(_ sender: UIButton) {
-        let start = startingStation.text
-        let end = endingStation.text
-        
-        let url = SEPTAApi.septaURL(start: start, end: end)
-        let request = URLRequest(url: url)
-        let task = session.dataTask(with: request) {
-            (data, response, error) in
-            if let jsonData = data {
-                if let jsonString = String(data: jsonData, encoding: .utf8) {
-                    print(jsonString)
-                }
-            } else if let requestError = error {
-                print("Error fetching next to arrive train: \(requestError)")
-            } else {
-                print("Unexpected error with the request")
+        fetchSEPTAArrivals {
+            (arrival) in
+            
+            switch arrival {
+            case let .success(train):
+                print(train)
+                print("successfully retrieved trains")
+            case let .failure(error):
+                print(error)
+                print("Failed to retrieve trains")
             }
         }
-        task.resume()
     }
-
+    
+    
     var selectedStation: String?
     var stationList = ["30th Street Station",
                        "49th Street",
@@ -211,6 +206,32 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         let config = URLSessionConfiguration.default
         return URLSession(configuration: config)
     }()
+    
+    func fetchSEPTAArrivals(completion: @escaping (Result<SEPTAResponse, Error>) -> Void) {
+           let start = startingStation.text
+           let end = endingStation.text
+           
+           let url = SEPTAApi.septaURL(start: start, end: end)
+           let request = URLRequest(url: url)
+           let task = session.dataTask(with: request) {
+               (data, response, error) in
+
+               let result = self.processSEPTARequest(data: data, error: error)
+               OperationQueue.main.addOperation {
+                    print(result)
+                   completion(result)
+               }
+           }
+           task.resume()
+       }
+       
+       func processSEPTARequest(data: Data?, error: Error?) -> Result<SEPTAResponse, Error> {
+           guard let jsonData = data else {
+               return .failure(error!)
+           }
+           
+           return SEPTAApi.arrivals(fromJSON: jsonData)
+       }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
